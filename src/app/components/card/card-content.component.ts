@@ -3,7 +3,13 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'app-card-content',
   template: `
-    <div class="card-content" [ngClass]="{ 'card-scroll': scroll }">
+    <div
+      class="card-content"
+      [ngClass]="{ 'card-scroll': scroll }"
+      [ngStyle]="{
+        'height': setScrollHeight()
+      }"
+    >
       <ng-content></ng-content>
     </div>
   `,
@@ -14,7 +20,6 @@ import { Component, Input } from '@angular/core'
       }
 
       .card-scroll {
-        height: 200px;
         overflow: auto;
       }
 
@@ -41,4 +46,18 @@ import { Component, Input } from '@angular/core'
 })
 export class CardContentComponent {
   @Input() scroll = false
+  @Input() contentScrollHeight = 'auto'
+
+  setScrollHeight(): string {
+    if (this.scroll && this.contentScrollHeight !== 'auto') {
+      console.log(this.contentScrollHeight)
+      return this.contentScrollHeight
+    }
+
+    if (this.scroll) {
+      return '200px'
+    }
+
+    return 'auto'
+  }
 }
