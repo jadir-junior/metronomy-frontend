@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { By } from '@angular/platform-browser'
 import { CardComponent } from './card.component'
-import { DebugElement } from '@angular/core'
 import { getNativeElementByCss } from 'src/app/utils/test-helper/test-helper'
 
 describe('CardComponent', () => {
