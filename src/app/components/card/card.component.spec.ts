@@ -1,8 +1,8 @@
-import { Component, DebugElement } from '@angular/core'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
 import { By } from '@angular/platform-browser'
 import { CardComponent } from './card.component'
+import { DebugElement } from '@angular/core'
 
 describe('CardComponent', () => {
   let component: CardComponent
@@ -39,6 +39,14 @@ describe('CardComponent', () => {
     fixture.detectChanges()
     const card: HTMLElement = fixture.debugElement.query(By.css('.card')).nativeElement
 
-    expect(getComputedStyle(card).border).toEqual('1px solid #eff2f5')
+    expect(getComputedStyle(card).border).toEqual(`1px solid rgb(239, 242, 245)`)
+  })
+
+  it('should render a border with dashed with input border "dashed"', () => {
+    component.border = 'dashed'
+    fixture.detectChanges()
+    const card: HTMLElement = fixture.debugElement.query(By.css('.card')).nativeElement
+
+    expect(getComputedStyle(card).border).toEqual('1px dashed rgb(239, 242, 245)')
   })
 })
