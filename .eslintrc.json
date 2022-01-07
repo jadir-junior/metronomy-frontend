@@ -48,7 +48,8 @@
           {
             "allow": ["error"]
           }
-        ]
+        ],
+        "prettier/prettier": ["error", { "quoteProps": false }]
       }
     },
     {
