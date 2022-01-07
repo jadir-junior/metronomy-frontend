@@ -10,7 +10,7 @@
     "test:ci": "ng test --browsers ChromeHeadless --code-coverage --watch=false",
     "style": "import-sort -l '**/src/**/*.ts' && prettier --check '**/src/**/*.{css,ts}'",
     "style:fix": "import-sort --write '**/src/**/*.ts' && prettier --write '**/src/**/*.{css,ts}' && js-beautify '**/src/**/*.html'",
-    "lint": "ng lint"
+    "lint": "ng lint --max-warnings 0"
   },
   "private": true,
   "dependencies": {
