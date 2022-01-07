@@ -35,6 +35,9 @@ jobs:
         run: |
           npm ci
 
+      - name: Styling
+        run: npm run style
+
       - name: Building
         run: npm run build
 
