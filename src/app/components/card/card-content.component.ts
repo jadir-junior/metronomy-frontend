@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-card-content',
-  template: ` <div class="card-content">card-content works!</div> `,
+  template: ` <div class="card-content"><ng-content></ng-content></div> `,
   styles: [
     `
       .card-content {
