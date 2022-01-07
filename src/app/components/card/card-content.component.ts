@@ -50,7 +50,6 @@ export class CardContentComponent {
 
   setScrollHeight(): string {
     if (this.scroll && this.contentScrollHeight !== 'auto') {
-      console.log(this.contentScrollHeight)
       return this.contentScrollHeight
     }
 
