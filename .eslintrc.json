@@ -49,7 +49,7 @@
             "allow": ["error"]
           }
         ],
-        "prettier/prettier": ["error", { "quoteProps": false }]
+        "prettier/prettier": ["error", { "quoteProps": "preserve" }]
       }
     },
     {
