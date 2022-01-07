@@ -38,6 +38,9 @@ jobs:
       - name: Styling
         run: npm run style
 
+      - name: Linting
+        run: npm run lint
+
       - name: Building
         run: npm run build
 
