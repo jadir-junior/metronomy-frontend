@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core'
 
 @Component({
-  selector: 'app-card-content',
+  selector: 'met-card-content',
   template: `
     <div
       class="card-content"

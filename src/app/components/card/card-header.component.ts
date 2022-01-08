@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-card-header',
+  selector: 'met-card-header',
   template: `<div class="card-header">
     <div class="card-toolbar">
       <div><ng-content></ng-content></div>
