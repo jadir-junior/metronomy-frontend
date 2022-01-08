@@ -21,7 +21,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": ["met", "app"],
+            "prefix": "app",
             "style": "camelCase"
           }
         ],
@@ -29,7 +29,7 @@
           "error",
           {
             "type": "element",
-            "prefix": ["met", "app"],
+            "prefix": "app",
             "style": "kebab-case"
           }
         ],
@@ -48,8 +48,7 @@
           {
             "allow": ["error"]
           }
-        ],
-        "prettier/prettier": ["error", { "quoteProps": "preserve" }]
+        ]
       }
     },
     {
