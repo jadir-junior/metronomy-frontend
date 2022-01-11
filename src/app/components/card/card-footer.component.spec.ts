@@ -1,24 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { render, screen } from '@testing-library/angular'
 
 import { CardFooterComponent } from './card-footer.component'
 
 describe('CardFooterComponent', () => {
-  let component: CardFooterComponent
-  let fixture: ComponentFixture<CardFooterComponent>
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  it('should create card footer component', async () => {
+    await render('<met-card-footer>Footer</met-card-footer>', {
       declarations: [CardFooterComponent],
-    }).compileComponents()
-  })
+    })
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CardFooterComponent)
-    component = fixture.componentInstance
-    fixture.detectChanges()
-  })
+    const footer = screen.getByText(/footer/i)
 
-  it('should create', () => {
-    expect(component).toBeTruthy()
+    expect(footer).toBeInTheDocument()
   })
 })
