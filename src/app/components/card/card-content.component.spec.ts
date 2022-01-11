@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/angular'
 
 import { CardContentComponent } from './card-content.component'
-import { prettyDOM } from '@testing-library/dom'
 
 describe('CardContentComponent', () => {
   it('should create card content component', async () => {
