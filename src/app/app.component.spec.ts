@@ -1,12 +1,19 @@
 import { AppComponent } from './app.component'
+import { Component } from '@angular/core'
 import { RouterTestingModule } from '@angular/router/testing'
 import { TestBed } from '@angular/core/testing'
+
+@Component({
+  selector: 'met-link',
+  template: '<p>Mock Link</p>',
+})
+class MockMetLinkComponent {}
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [AppComponent],
+      declarations: [AppComponent, MockMetLinkComponent],
     }).compileComponents()
   })
 

@@ -3,8 +3,9 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'met-link',
   template: ` <a
+    data-testid="link"
     [href]="href"
-    [ngClass]="{ 'small': size === 'small', 'medium': size === 'medium' }"
+    [ngClass]="{ 'link-small': size === 'small', 'link-medium': size === 'medium' }"
     ><ng-content></ng-content
   ></a>`,
   styles: [
@@ -19,11 +20,11 @@ import { Component, Input } from '@angular/core'
         color: #33b1f9;
       }
 
-      .small {
+      .link-small {
         font-size: 1.075rem;
       }
 
-      .medium {
+      .link-medium {
         font-size: 1.2rem;
       }
     `,

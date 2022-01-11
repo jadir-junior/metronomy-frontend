@@ -1,57 +1,58 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { render, screen } from '@testing-library/angular'
 
 import { CardContentComponent } from './card-content.component'
-import { getNativeElement } from 'src/app/utils/test-helper/test-helper'
 
 describe('CardContentComponent', () => {
-  let component: CardContentComponent
-  let fixture: ComponentFixture<CardContentComponent>
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  it('should create card content component', async () => {
+    await render('<met-card-content>Card content</met-card-content>', {
       declarations: [CardContentComponent],
-    }).compileComponents()
+    })
+
+    expect(screen.getByText(/card content/i)).toBeInTheDocument()
   })
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CardContentComponent)
-    component = fixture.componentInstance
+  it('should render a content without scroll', async () => {
+    await render(CardContentComponent)
+
+    const content = screen.getByLabelText(/card content/i)
+
+    expect(content).toHaveStyle({ height: 'auto' })
   })
 
-  it('should create', () => {
-    fixture.detectChanges()
-    expect(component).toBeTruthy()
+  it('should render a content scroll with default 200px', async () => {
+    await render(CardContentComponent, {
+      componentProperties: {
+        scroll: true,
+      },
+    })
+
+    const content = screen.getByLabelText(/card content/i)
+
+    expect(content).toHaveStyle({ height: '200px' })
   })
 
-  it('should render a content without scroll', () => {
-    const cardContent: HTMLElement = getNativeElement(fixture, '.card-content')
-    fixture.detectChanges()
+  it('should render a content scroll and contentScrollHeight with 100px', async () => {
+    await render(CardContentComponent, {
+      componentProperties: {
+        scroll: true,
+        contentScrollHeight: '100px',
+      },
+    })
 
-    expect(cardContent.style.height).toEqual('auto')
+    const content = screen.getByLabelText(/card content/i)
+
+    expect(content).toHaveStyle({ height: '100px' })
   })
 
-  it('should render a content scroll with default 200px', () => {
-    component.scroll = true
-    fixture.detectChanges()
-    const cardContent: HTMLElement = getNativeElement(fixture, '.card-content')
+  it('should render a content scroll without scroll and with contentScrollHeight 100px, when scroll is false, so height is auto', async () => {
+    await render(CardContentComponent, {
+      componentProperties: {
+        contentScrollHeight: '100px',
+      },
+    })
 
-    expect(cardContent.style.height).toEqual('200px')
-  })
+    const content = screen.getByLabelText(/card content/i)
 
-  it('should render a content scroll and contentScrollHeight with 100px', () => {
-    component.scroll = true
-    component.contentScrollHeight = '100px'
-    fixture.detectChanges()
-    const cardContent: HTMLElement = getNativeElement(fixture, '.card-content')
-
-    expect(cardContent.style.height).toEqual('100px')
-  })
-
-  it('should render a content a scroll without scroll and with contentScrollHeight 100px, when scroll is false, so height is auto', () => {
-    component.contentScrollHeight = '100px'
-    fixture.detectChanges()
-    const cardContent: HTMLElement = getNativeElement(fixture, '.card-content')
-
-    expect(cardContent.style.height).toEqual('auto')
+    expect(content).toHaveStyle({ height: 'auto' })
   })
 })

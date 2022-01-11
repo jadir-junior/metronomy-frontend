@@ -1,54 +1,45 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { render, screen } from '@testing-library/angular'
 
 import { CardComponent } from './card.component'
-import { convertColorHexToRgb } from 'src/app/utils/convert-color/convert-color'
-import { getNativeElement } from 'src/app/utils/test-helper/test-helper'
 
 describe('CardComponent', () => {
-  let component: CardComponent
-  let fixture: ComponentFixture<CardComponent>
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  it('should create', async () => {
+    await render('<met-card><div>Card</div></met-card>', {
       declarations: [CardComponent],
-    }).compileComponents()
+    })
+
+    expect(screen.getByText(/card/i)).toBeInTheDocument()
   })
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CardComponent)
-    component = fixture.componentInstance
+  it('should render default with a border shadow', async () => {
+    await render(CardComponent)
+
+    const card = screen.getByTestId(/card/i)
+
+    expect(card).toHaveClass('card border-shadow')
   })
 
-  it('should create', () => {
-    fixture.detectChanges()
-    expect(component).toBeTruthy()
+  it('should render with a border solid with input "solid"', async () => {
+    await render(CardComponent, {
+      componentProperties: {
+        border: 'solid',
+      },
+    })
+
+    const card = screen.getByTestId(/card/i)
+
+    expect(card).toHaveClass('card border-solid')
   })
 
-  it('should render a border default with shadow', () => {
-    fixture.detectChanges()
-    const card: HTMLElement = getNativeElement(fixture, '.card')
+  it('should render with a border dashed with input "dashed"', async () => {
+    await render(CardComponent, {
+      componentProperties: {
+        border: 'dashed',
+      },
+    })
 
-    expect(getComputedStyle(card).boxShadow).toEqual(
-      'rgba(0, 0, 0, 0.05) 0px 1.6px 16px 4px'
-    )
-  })
+    const card = screen.getByTestId(/card/i)
 
-  it('should render a border solid with input border "solid"', () => {
-    component.border = 'solid'
-    fixture.detectChanges()
-    const card: HTMLElement = getNativeElement(fixture, '.card')
-
-    expect(getComputedStyle(card).border).toEqual(
-      `1px solid ${convertColorHexToRgb('#eff2f5')}`
-    )
-  })
-
-  it('should render a border with dashed with input border "dashed"', () => {
-    component.border = 'dashed'
-    fixture.detectChanges()
-    const card: HTMLElement = getNativeElement(fixture, '.card')
-    expect(getComputedStyle(card).border).toEqual(
-      `1px dashed ${convertColorHexToRgb('#eff2f5')}`
-    )
+    expect(card).toHaveClass('card border-dashed')
   })
 })
