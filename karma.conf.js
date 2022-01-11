@@ -10,7 +10,9 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      require('@angular-devkit/build-angular/plugins/karma'),
+      require('karma-sonarqube-reporter'),
+      require('karma-sonarqube-unit-reporter'),
     ],
     client: {
       jasmine: {
@@ -19,26 +21,40 @@ module.exports = function (config) {
         // for example, you can disable the random execution with `random: false`
         // or set a specific seed with `seed: 4321`
       },
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
+      clearContext: false, // leave Jasmine Spec Runner output visible in browser
     },
     jasmineHtmlReporter: {
-      suppressAll: true // removes the duplicated traces
+      suppressAll: true, // removes the duplicated traces
     },
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/metronomy'),
       subdir: '.',
-      reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
-      ]
+      reporters: [{ type: 'html' }, { type: 'text-summary' }, { type: 'lcovonly' }],
     },
-    reporters: ['progress', 'kjhtml'],
+    sonarqubeReporter: {
+      basePath: 'src/app',
+      filePattern: '**/*spec.ts',
+      encoding: 'utf-8',
+      legacyMode: false,
+      reportName: function (metadata) {
+        return 'sonarqube_report.xml'
+      },
+    },
+    sonarQubeUnitReporter: {
+      sonarQubeVersion: 'LATEST',
+      outputFile: 'reports/ut_report.xml',
+      overrideTestDescription: true,
+      testPaths: ['./src'],
+      testFilePattern: '.spec.ts',
+      useBrowserName: false,
+    },
+    reporters: ['progress', 'kjhtml', 'sonarqube', 'sonarqubeUnit'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    restartOnFileChange: true
-  });
-};
+    restartOnFileChange: true,
+  })
+}
