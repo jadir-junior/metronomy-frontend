@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
 import { CardComponent } from './card.component'
+import { convertColorHexToRgb } from 'src/app/utils/convert-color/convert-color'
 import { getNativeElement } from 'src/app/utils/test-helper/test-helper'
 
 describe('CardComponent', () => {
@@ -37,13 +38,17 @@ describe('CardComponent', () => {
     fixture.detectChanges()
     const card: HTMLElement = getNativeElement(fixture, '.card')
 
-    expect(getComputedStyle(card).border).toEqual(`1px solid rgb(239, 242, 245)`)
+    expect(getComputedStyle(card).border).toEqual(
+      `1px solid ${convertColorHexToRgb('#eff2f5')}`
+    )
   })
 
   it('should render a border with dashed with input border "dashed"', () => {
     component.border = 'dashed'
     fixture.detectChanges()
     const card: HTMLElement = getNativeElement(fixture, '.card')
-    expect(getComputedStyle(card).border).toEqual('1px dashed rgb(239, 242, 245)')
+    expect(getComputedStyle(card).border).toEqual(
+      `1px dashed ${convertColorHexToRgb('#eff2f5')}`
+    )
   })
 })
