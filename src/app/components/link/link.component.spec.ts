@@ -1,42 +1,35 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
+import '@testing-library/jest-dom'
+
+import { render, screen } from '@testing-library/angular'
 
 import { LinkComponent } from './link.component'
-import { getNativeElement } from 'src/app/utils/test-helper/test-helper'
 
 describe('LinkComponent', () => {
-  let component: LinkComponent
-  let fixture: ComponentFixture<LinkComponent>
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  it('should render component', async () => {
+    await render('<met-link>Link Content</met-link>', {
       declarations: [LinkComponent],
-    }).compileComponents()
+    })
+
+    expect(screen.getByRole('link', { name: /link content/i })).toBeInTheDocument()
   })
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(LinkComponent)
-    component = fixture.componentInstance
+  it('should render link default', async () => {
+    await render(LinkComponent)
+
+    const link = screen.getByTestId(/link/i)
+
+    expect(link).toHaveClass('link-small')
   })
 
-  it('should create', () => {
-    fixture.detectChanges()
-    expect(component).toBeTruthy()
-  })
+  it('should render link with size medium', async () => {
+    await render(LinkComponent, {
+      componentProperties: {
+        size: 'medium',
+      },
+    })
 
-  it('should render link default', () => {
-    fixture.detectChanges()
+    const link = screen.getByTestId(/link/i)
 
-    const link: HTMLAnchorElement = getNativeElement(fixture, 'a') as HTMLAnchorElement
-
-    expect(getComputedStyle(link).fontWeight).toEqual('500')
-    expect(getComputedStyle(link).fontSize).toBe('17.2px')
-  })
-
-  it('should render a link with as medium size', () => {
-    component.size = 'medium'
-    fixture.detectChanges()
-    const link: HTMLAnchorElement = getNativeElement(fixture, 'a') as HTMLAnchorElement
-
-    expect(getComputedStyle(link).fontSize).toBe('19.2px')
+    expect(link).toHaveClass('link-medium')
   })
 })
