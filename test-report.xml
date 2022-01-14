@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/home/jadir/Documents/projects/metronomy/src/app/app.component.spec.ts">
+    <testCase name="AppComponent should create the app" duration="64"/>
+  </file>
+  <file path="/home/jadir/Documents/projects/metronomy/src/app/components/card/card.component.spec.ts">
+    <testCase name="CardComponent should create" duration="90"/>
+    <testCase name="CardComponent should render default with a border shadow" duration="15"/>
+    <testCase name="CardComponent should render with a border solid with input &quot;solid&quot;" duration="10"/>
+    <testCase name="CardComponent should render with a border dashed with input &quot;dashed&quot;" duration="9"/>
+  </file>
+  <file path="/home/jadir/Documents/projects/metronomy/src/app/components/card/card-header.component.spec.ts">
+    <testCase name="CardHeaderComponent should create card header component" duration="75"/>
+  </file>
+  <file path="/home/jadir/Documents/projects/metronomy/src/app/components/link/link.component.spec.ts">
+    <testCase name="LinkComponent should render component" duration="154"/>
+    <testCase name="LinkComponent should render link default" duration="12"/>
+    <testCase name="LinkComponent should render link with size medium" duration="8"/>
+  </file>
+  <file path="/home/jadir/Documents/projects/metronomy/src/app/components/card/card-footer.component.spec.ts">
+    <testCase name="CardFooterComponent should create card footer component" duration="59"/>
+  </file>
+  <file path="/home/jadir/Documents/projects/metronomy/src/app/components/card/card-title.component.spec.ts">
+    <testCase name="CardTitleComponent should create a title" duration="49"/>
+  </file>
+  <file path="/home/jadir/Documents/projects/metronomy/src/app/components/card/card-content.component.spec.ts">
+    <testCase name="CardContentComponent should create card content component" duration="56"/>
+    <testCase name="CardContentComponent should render a content without scroll" duration="28"/>
+    <testCase name="CardContentComponent should render a content scroll with default 200px" duration="10"/>
+    <testCase name="CardContentComponent should render a content scroll and contentScrollHeight with 100px" duration="8"/>
+    <testCase name="CardContentComponent should render a content scroll without scroll and with contentScrollHeight 100px, when scroll is false, so height is auto" duration="7"/>
+  </file>
+</testExecutions>

@@ -53,6 +53,7 @@
     "import-sort-parser-typescript": "^6.0.0",
     "jest": "^27.4.7",
     "jest-preset-angular": "^11.0.1",
+    "jest-sonar-reporter": "^2.0.0",
     "js-beautify": "^1.14.0",
     "prettier": "^2.5.1",
     "sonar-scanner": "^3.1.0",
@@ -68,6 +69,7 @@
   },
   "jest": {
     "preset": "jest-preset-angular",
+    "testResultsProcessor": "jest-sonar-reporter",
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/",
       "<rootDir>/dist/",
