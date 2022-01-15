@@ -1,0 +1,52 @@
+.table {
+  width: 100%;
+}
+
+.table {
+  thead {
+    tr {
+      th {
+        padding: 0.75rem 0.75rem;
+      }
+
+      th:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        padding: 0.75rem 0.75rem;
+      }
+
+      td:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table-base thead tr th {
+  border-bottom: 1px solid #eff2f5;
+}
+
+.table-position-left thead tr th,
+.table-position-left tbody tr td {
+  text-align: left;
+}
+
+.table-position-center thead tr th,
+.table-position-center tbody tr td {
+  text-align: center;
+}
+
+.table-position-right thead tr th,
+.table-position-right tbody tr td {
+  text-align: right;
+}

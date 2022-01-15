@@ -1,1 +1,22 @@
-<met-link size="medium">Create an Account</met-link>
+<met-table [responsive]="true">
+  <thead>
+    <tr>
+      <th id="name">Name</th>
+      <th id="position">Position</th>
+      <th id="office">Office</th>
+      <th id="age">Age</th>
+      <th id="start-date">Start date</th>
+      <th id="salary">Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employeers">
+      <td>{{ employee.name }}</td>
+      <td>{{ employee.position }}</td>
+      <td>{{ employee.office }}</td>
+      <td>{{ employee.age }}</td>
+      <td>{{ employee.startDate }}</td>
+      <td>{{ employee.salary }}</td>
+    </tr>
+  </tbody>
+</met-table>
