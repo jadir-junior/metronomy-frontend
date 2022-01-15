@@ -1,16 +1,21 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core'
 
 @Component({
-  selector: 'met-table, table[met-table]',
+  selector: 'met-table',
   encapsulation: ViewEncapsulation.None,
   template: `<table
     aria-label="table"
     class="table table-base"
     [ngClass]="{
       'table-responsive': responsive,
-      'table-position-left': position === 'left',
-      'table-position-center': position === 'center',
-      'table-position-right': position === 'right'
+      'table-border': tableBorder,
+      'table-rounded': tableRounded,
+      'table-text-align-left': textAlign === 'left',
+      'table-text-align-center': textAlign === 'center',
+      'table-text-align-right': textAlign === 'right',
+      'table-row-border-solid': rowBorder === 'solid',
+      'table-row-border-dashed': rowBorder === 'dashed',
+      'table-striped': striped
     }"
   >
     <ng-content></ng-content>
@@ -19,5 +24,9 @@ import { Component, Input, ViewEncapsulation } from '@angular/core'
 })
 export class TableComponent {
   @Input() responsive = false
-  @Input() position: 'left' | 'center' | 'right' = 'left'
+  @Input() textAlign: 'left' | 'center' | 'right' = 'left'
+  @Input() rowBorder: 'none' | 'solid' | 'dashed' = 'none'
+  @Input() striped = false
+  @Input() tableBorder = false
+  @Input() tableRounded = false
 }
