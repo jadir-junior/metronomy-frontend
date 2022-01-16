@@ -9,6 +9,13 @@
   >
     <thead>
       <tr>
+        <th id="checkbox">
+          <input
+            type="checkbox"
+            (change)="$event ? selection.masterToggle() : null"
+            [checked]="selection.hasValue() && selection.isAllSelected()"
+          />
+        </th>
         <th id="name">Name</th>
         <th id="position">Position</th>
         <th id="office">Office</th>
@@ -19,6 +26,14 @@
     </thead>
     <tbody>
       <tr *ngFor="let employee of employeers">
+        <td>
+          <input
+            type="checkbox"
+            (click)="$event.stopPropagation()"
+            (change)="$event ? selection.toggle(employee) : null"
+            [checked]="selection.isSelected(employee)"
+          />
+        </td>
         <td>{{ employee.name }}</td>
         <td>{{ employee.position }}</td>
         <td>{{ employee.office }}</td>
