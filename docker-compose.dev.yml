@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: metronomy
+    image: metronomy:latest
+    build:
+      context: .
+      target: development
+    volumes:
+      - ./src:/app/src
+    ports:
+      - 4200:4200
+    command: npm run start:dev:docker
