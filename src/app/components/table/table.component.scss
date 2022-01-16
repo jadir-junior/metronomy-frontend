@@ -36,6 +36,19 @@
 .table-rounded {
   border-radius: 8px;
   border-collapse: separate;
+
+  tbody tr {
+    border-collapse: collapse;
+  }
+  thead tr {
+    border-collapse: collapse;
+  }
+}
+
+.table-hover {
+  tbody tr:hover {
+    background-color: #f5f8fa;
+  }
 }
 
 .table-striped {

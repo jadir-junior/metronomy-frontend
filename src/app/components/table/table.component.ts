@@ -15,7 +15,8 @@ import { Component, Input, ViewEncapsulation } from '@angular/core'
       'table-text-align-right': textAlign === 'right',
       'table-row-border-solid': rowBorder === 'solid',
       'table-row-border-dashed': rowBorder === 'dashed',
-      'table-striped': striped
+      'table-striped': striped,
+      'table-hover': hover
     }"
   >
     <ng-content></ng-content>
@@ -29,4 +30,5 @@ export class TableComponent {
   @Input() striped = false
   @Input() tableBorder = false
   @Input() tableRounded = false
+  @Input() hover = false
 }
