@@ -1,6 +1,6 @@
 {
   "name": "metronomy",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,8 +11,11 @@
     "style": "import-sort -l '**/src/**/*.ts' && prettier --check '**/src/**/*.{css,ts}'",
     "style:fix": "import-sort --write '**/src/**/*.ts' && prettier --write '**/src/**/*.{css,ts}' && js-beautify '**/src/**/*.html'",
     "lint": "ng lint --max-warnings 0",
-    "docker:build:image": "docker image build -t metronomy .",
-    "docker:tag:image": "cross-conf-env docker tag metronomy:latest metronomy:$npm_package_version"
+    "start:dev:docker": "ng serve --host=0.0.0.0 --port 4200",
+    "docker:build:image": "docker image build -t $npm_package_name .",
+    "docker:tag:image": "cross-conf-env docker tag metronomy:latest metronomy:$npm_package_version",
+    "docker:start": "docker-compose -f docker-compose.dev.yml up -d",
+    "docker:up": "npm run docker:build:image && npm run docker:tag:image && npm run docker:start"
   },
   "private": true,
   "dependencies": {

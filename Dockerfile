@@ -1,11 +1,13 @@
 FROM node:16.13.2-alpine
 
-RUN apk add --no-cache python2 g++ make
-
 WORKDIR /app
 
-COPY ["package*.json", "./"]
+COPY ["package.json", "package-lock.json", "./"]
 
-RUN npm ci
+RUN npm install
 
-CMD ["npm", "start"]
+COPY . .
+
+EXPOSE 4200
+
+CMD ["npm", "run", "start:dev:docker"]
