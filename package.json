@@ -10,7 +10,9 @@
     "test:dev": "jest --watch",
     "style": "import-sort -l '**/src/**/*.ts' && prettier --check '**/src/**/*.{css,ts}'",
     "style:fix": "import-sort --write '**/src/**/*.ts' && prettier --write '**/src/**/*.{css,ts}' && js-beautify '**/src/**/*.html'",
-    "lint": "ng lint --max-warnings 0"
+    "lint": "ng lint --max-warnings 0",
+    "docker:build:image": "docker image build -t metronomy .",
+    "docker:tag:image": "cross-conf-env docker tag metronomy:latest metronomy:$npm_package_version"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +45,7 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.9.1",
     "@typescript-eslint/parser": "5.9.1",
+    "cross-conf-env": "^1.2.1",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^25.3.4",
