@@ -17,6 +17,8 @@ body {
 }
 
 :root {
+  --font: var('Poppins, sans-serif');
+
   --primary: #009ef7;
   --primary-hover: #0095e8;
 
@@ -25,6 +27,11 @@ body {
 
   --secondary: #e4e6ef;
   --secondary-hover: #b5b5c3;
+
+  --success: #50cd89;
+  --success-hover: #47be7d;
+
+  --text-white: #fff;
 
   --text-black-medium: #3f4254;
 
