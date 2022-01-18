@@ -15,11 +15,11 @@
 }
 
 .btn-white {
-  color: #7e8299;
-  background-color: #fff;
+  color: var(--text-gray-light);
+  background-color: var(--white);
 
   &:hover {
-    background-color: #f5f8fa;
+    background-color: var(--white-hover);
   }
 }
 
