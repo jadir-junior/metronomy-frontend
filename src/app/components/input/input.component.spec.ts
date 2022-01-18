@@ -1,80 +1,66 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { render, screen } from '@testing-library/angular'
 
 import { InputComponent } from './input.component'
-import { convertColorHexToRgb } from 'src/app/utils/convert-color/convert-color'
-import { getNativeElement } from 'src/app/utils/test-helper/test-helper'
 
 describe('InputComponent', () => {
-  let component: InputComponent
-  let fixture: ComponentFixture<InputComponent>
+  it('should create input', async () => {
+    await render(InputComponent, {
+      componentProperties: {
+        placeholder: 'email@example.com',
+      },
+    })
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [InputComponent],
-    }).compileComponents()
+    expect(screen.getByPlaceholderText('email@example.com')).toBeInTheDocument()
   })
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(InputComponent)
-    component = fixture.componentInstance
-  })
+  it('should create a input with default config', async () => {
+    await render(InputComponent, {
+      componentProperties: {
+        placeholder: 'email@example.com',
+      },
+    })
 
-  it('should create', () => {
-    fixture.detectChanges()
-    expect(component).toBeTruthy()
-  })
-
-  it('should create a input with default config', () => {
-    fixture.detectChanges()
-    const input: HTMLInputElement = getNativeElement(fixture, 'input') as HTMLInputElement
-
-    expect(getComputedStyle(input).backgroundColor).toEqual(
-      `${convertColorHexToRgb('#ffffff')}`
-    )
-    expect(getComputedStyle(input).border).toEqual(
-      `1px solid ${convertColorHexToRgb('#e4e6ef')}`
-    )
-
-    // TODO TESTS TO FOCUS
-  })
-
-  it('should create a input with color solid', () => {
-    component.color = 'solid'
-    fixture.detectChanges()
-    const input: HTMLInputElement = getNativeElement(fixture, 'input') as HTMLInputElement
-
-    expect(getComputedStyle(input).backgroundColor).toEqual(
-      `${convertColorHexToRgb('#f5f8fa')}`
-    )
-    expect(getComputedStyle(input).borderColor).toEqual(
-      `${convertColorHexToRgb('#f5f8fa')}`
-    )
-    expect(getComputedStyle(input).color).toEqual(`${convertColorHexToRgb('#5e6278')}`)
-  })
-
-  it('should create a input with color transparent', () => {
-    component.color = 'transparent'
-    fixture.detectChanges()
-    const input: HTMLInputElement = getNativeElement(fixture, 'input') as HTMLInputElement
-
-    expect(getComputedStyle(input).backgroundColor).toEqual(
-      `${convertColorHexToRgb('transparent')}`
-    )
-    expect(getComputedStyle(input).borderColor).toEqual(
-      `${convertColorHexToRgb('transparent')}`
+    expect(screen.getByPlaceholderText('email@example.com')).toHaveClass(
+      'form-control-default'
     )
   })
 
-  it('should create a input with flush prop', () => {
-    component.flush = true
-    fixture.detectChanges()
-    const input: HTMLInputElement = getNativeElement(fixture, 'input') as HTMLInputElement
+  it('should create a input with color solid', async () => {
+    await render(InputComponent, {
+      componentProperties: {
+        placeholder: 'email@example.com',
+        color: 'solid',
+      },
+    })
 
-    expect(getComputedStyle(input).backgroundColor).toEqual(
-      `${convertColorHexToRgb('transparent')}`
+    expect(screen.getByPlaceholderText('email@example.com')).toHaveClass(
+      'form-control-solid'
     )
-    expect(getComputedStyle(input).borderColor).toEqual(
-      `${convertColorHexToRgb('transparent')}`
+  })
+
+  it('should create a input with color transparent', async () => {
+    await render(InputComponent, {
+      componentProperties: {
+        placeholder: 'email@example.com',
+        color: 'transparent',
+      },
+    })
+
+    expect(screen.getByPlaceholderText('email@example.com')).toHaveClass(
+      'form-control-transparent'
+    )
+  })
+
+  it('should create a input with flush prop', async () => {
+    await render(InputComponent, {
+      componentProperties: {
+        placeholder: 'email@example.com',
+        flush: true,
+      },
+    })
+
+    expect(screen.getByPlaceholderText('email@example.com')).toHaveClass(
+      'form-control-flush'
     )
   })
 })
