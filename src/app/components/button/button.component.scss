@@ -58,3 +58,12 @@
     background-color: var(--success-hover);
   }
 }
+
+.btn-info {
+  color: var(--text-white);
+  background-color: var(--info);
+
+  &:hover {
+    background-color: var(--info-hover);
+  }
+}
