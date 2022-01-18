@@ -11,7 +11,8 @@ import { Component, Input } from '@angular/core'
         'btn-light': color === 'light',
         'btn-secondary': color === 'secondary',
         'btn-success': color === 'success',
-        'btn-info': color === 'info'
+        'btn-info': color === 'info',
+        'btn-warning': color === 'warning'
       }"
     >
       <ng-content></ng-content>

@@ -67,3 +67,12 @@
     background-color: var(--info-hover);
   }
 }
+
+.btn-warning {
+  color: var(--text-white);
+  background-color: var(--warning);
+
+  &:hover {
+    background-color: var(--warning-hover);
+  }
+}
