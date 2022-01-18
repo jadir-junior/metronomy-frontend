@@ -66,4 +66,12 @@ describe('ButtonComponent', () => {
 
     expect(screen.getByRole('button', { name: /button/i })).toHaveClass('btn-warning')
   })
+
+  it('should render a button danger', async () => {
+    await render('<met-button color="danger">Button</met-button>', {
+      declarations: [ButtonComponent],
+    })
+
+    expect(screen.getByRole('button', { name: /button/i })).toHaveClass('btn-danger')
+  })
 })

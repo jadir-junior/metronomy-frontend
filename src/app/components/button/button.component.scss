@@ -76,3 +76,12 @@
     background-color: var(--warning-hover);
   }
 }
+
+.btn-danger {
+  color: var(--text-white);
+  background-color: var(--danger);
+
+  &:hover {
+    background-color: var(--danger-hover);
+  }
+}
