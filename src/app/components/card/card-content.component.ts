@@ -5,6 +5,7 @@ import { Component, Input } from '@angular/core'
   template: `
     <div
       class="card-content"
+      aria-label="card content"
       [ngClass]="{ 'card-scroll': scroll }"
       [ngStyle]="{
         'height': setScrollHeight()

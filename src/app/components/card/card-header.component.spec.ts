@@ -1,24 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { render, screen } from '@testing-library/angular'
 
 import { CardHeaderComponent } from './card-header.component'
 
 describe('CardHeaderComponent', () => {
-  let component: CardHeaderComponent
-  let fixture: ComponentFixture<CardHeaderComponent>
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  it('should create card header component', async () => {
+    await render('<met-card-header>Title</met-card-header>', {
       declarations: [CardHeaderComponent],
-    }).compileComponents()
-  })
+    })
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CardHeaderComponent)
-    component = fixture.componentInstance
-    fixture.detectChanges()
-  })
+    const header = screen.getByText(/title/i)
 
-  it('should create', () => {
-    expect(component).toBeTruthy()
+    expect(header).toBeInTheDocument()
   })
 })

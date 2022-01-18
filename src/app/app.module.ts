@@ -1,6 +1,7 @@
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
 import { BrowserModule } from '@angular/platform-browser'
+import { ButtonModule } from './components/button/button.module'
 import { CardModule } from './components/card/card.module'
 import { ComponentsModule } from './components.module'
 import { InputModule } from './components/input/input.module'
@@ -16,6 +17,7 @@ import { NgModule } from '@angular/core'
     CardModule,
     LinkModule,
     InputModule,
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

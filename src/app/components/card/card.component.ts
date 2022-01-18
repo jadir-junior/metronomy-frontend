@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core'
   selector: 'met-card',
   template: `
     <div
+      data-testid="card"
       class="card"
       [ngClass]="{
         'border-shadow': border === 'shadow',

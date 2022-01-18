@@ -11,8 +11,46 @@ h6 {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 300;
   letter-spacing: 0.45px;
   box-sizing: border-box;
+}
+
+:root {
+  --font: var('Poppins, sans-serif');
+
+  --primary: #009ef7;
+  --primary-hover: #0095e8;
+  --primary-hover-light: #33b1f9;
+
+  --light: #f5f8fa;
+  --light-hover: #eff2f5;
+
+  --secondary: #e4e6ef;
+  --secondary-hover: #b5b5c3;
+
+  --success: #50cd89;
+  --success-hover: #47be7d;
+
+  --info: #7239ea;
+  --info-hover: #5014d0;
+
+  --warning: #ffc700;
+  --warning-hover: #f1bc00;
+
+  --danger: #f1416c;
+  --danger-hover: #d9214e;
+
+  --dark: #181c32;
+  --dark-hover: #131628;
+
+  --white: #fff;
+  --white-hover: #f5f8fa;
+
+  --text-white: #fff;
+
+  --text-black-medium: #3f4254;
+
+  --text-gray-light: #7e8299;
 }
