@@ -23,7 +23,7 @@
   border: 1px solid #e4e6ef;
 }
 
-.form-control-default input:focus {
+.form-control-default:focus-within {
   border-color: #b5b5c3;
 }
 
