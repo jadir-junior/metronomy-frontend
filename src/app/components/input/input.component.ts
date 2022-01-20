@@ -16,7 +16,7 @@ import { Component, Input } from '@angular/core'
     `
       .form-control {
         width: 100%;
-        padding: 0.6rem 0.9rem;
+        padding: 0.7rem 1.2rem;
         font-size: 1rem;
         box-sizing: border-box;
         background-clip: padding-box;
