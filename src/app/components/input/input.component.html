@@ -8,7 +8,5 @@
   }"
 >
   <input class="form-control" [placeholder]="placeholder" [id]="id" [type]="type" />
-  <button (click)="onClick()" *ngIf="icon">
-    <span class="material-icons-outlined">{{ icon }}</span>
-  </button>
+  <ng-content *ngIf="icon"></ng-content>
 </div>

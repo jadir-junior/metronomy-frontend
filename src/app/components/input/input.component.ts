@@ -1,21 +1,16 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { Component, Input, ViewEncapsulation } from '@angular/core'
 
 @Component({
   selector: 'met-input',
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
 })
 export class InputComponent {
-  @Output() iconClick = new EventEmitter()
-
   @Input() id = ''
   @Input() placeholder = ''
   @Input() color: 'default' | 'solid' | 'transparent' = 'default'
   @Input() flush = false
-  @Input() icon = ''
+  @Input() icon = false
   @Input() type: 'text' | 'password' | 'tel' = 'text'
-
-  onClick() {
-    this.iconClick.emit()
-  }
 }

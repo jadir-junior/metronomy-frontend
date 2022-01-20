@@ -1,10 +1,11 @@
 <div style="width: 100%">
   <met-label for="firstName">First Name</met-label>
-  <met-input
-    id="firstName"
-    [icon]="showPassword ? 'visibility_off' : 'visibility'"
-    [type]="showPassword ? 'text' : 'password'"
-    (iconClick)="toggleVisibility()"
-  ></met-input>
+  <met-input id="firstName" [icon]="true" [type]="showPassword ? 'text' : 'password'">
+    <button (click)="toggleVisibility()">
+      <span class="material-icons-outlined">{{
+        showPassword ? 'visibility_off' : 'visibility'
+      }}</span>
+    </button>
+  </met-input>
   <met-error>First Name is required.</met-error>
 </div>
