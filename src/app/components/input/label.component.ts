@@ -1,20 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core'
 
 @Component({
-  selector: 'app-label',
-  template: `
-    <p>
-      label works!
-    </p>
-  `,
+  selector: 'met-label',
+  template: ` <label class="input-label" [for]="for"><ng-content></ng-content></label> `,
   styles: [
-  ]
+    `
+      .input-label {
+        display: block;
+        color: var(--text-black-dark);
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+      }
+    `,
+  ],
 })
-export class LabelComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class LabelComponent {
+  @Input() for = ''
 }

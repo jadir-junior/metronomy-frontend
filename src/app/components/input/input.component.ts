@@ -11,6 +11,7 @@ import { Component, Input } from '@angular/core'
       'form-control-flush': flush
     }"
     [placeholder]="placeholder"
+    [id]="id"
   />`,
   styles: [
     `
@@ -62,6 +63,7 @@ import { Component, Input } from '@angular/core'
   ],
 })
 export class InputComponent {
+  @Input() id = ''
   @Input() placeholder = ''
   @Input() color: 'default' | 'solid' | 'transparent' = 'default'
   @Input() flush = false

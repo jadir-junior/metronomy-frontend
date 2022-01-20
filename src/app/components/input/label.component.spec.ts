@@ -1,25 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { render, screen } from '@testing-library/angular'
 
-import { LabelComponent } from './label.component';
+import { LabelComponent } from './label.component'
 
 describe('LabelComponent', () => {
-  let component: LabelComponent;
-  let fixture: ComponentFixture<LabelComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ LabelComponent ]
+  it('should create label', async () => {
+    await render('<met-label>First Name</met-label>', {
+      declarations: [LabelComponent],
     })
-    .compileComponents();
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(LabelComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(screen.getByText(/First Name/i)).toBeInTheDocument()
+  })
+})
