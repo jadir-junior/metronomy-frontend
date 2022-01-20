@@ -20,7 +20,7 @@ describe('InputComponent', () => {
       },
     })
 
-    expect(screen.getByPlaceholderText('email@example.com')).toHaveClass(
+    expect(screen.getByPlaceholderText('email@example.com').parentNode).toHaveClass(
       'form-control-default'
     )
   })
@@ -33,7 +33,7 @@ describe('InputComponent', () => {
       },
     })
 
-    expect(screen.getByPlaceholderText('email@example.com')).toHaveClass(
+    expect(screen.getByPlaceholderText('email@example.com').parentNode).toHaveClass(
       'form-control-solid'
     )
   })
@@ -46,7 +46,7 @@ describe('InputComponent', () => {
       },
     })
 
-    expect(screen.getByPlaceholderText('email@example.com')).toHaveClass(
+    expect(screen.getByPlaceholderText('email@example.com').parentNode).toHaveClass(
       'form-control-transparent'
     )
   })
@@ -59,7 +59,7 @@ describe('InputComponent', () => {
       },
     })
 
-    expect(screen.getByPlaceholderText('email@example.com')).toHaveClass(
+    expect(screen.getByPlaceholderText('email@example.com').parentNode).toHaveClass(
       'form-control-flush'
     )
   })

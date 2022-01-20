@@ -1,0 +1,14 @@
+<div
+  class="wrapper-input"
+  [ngClass]="{
+    'form-control-default': color === 'default',
+    'form-control-solid': color === 'solid',
+    'form-control-transparent': color === 'transparent',
+    'form-control-flush': flush
+  }"
+>
+  <input class="form-control" [placeholder]="placeholder" [id]="id" [type]="type" />
+  <button (click)="onClick()" *ngIf="icon">
+    <span class="material-icons-outlined">{{ icon }}</span>
+  </button>
+</div>
