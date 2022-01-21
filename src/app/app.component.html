@@ -1,1 +1,51 @@
-<met-link>Secondary</met-link>
+<div style="width: 50%; margin: auto">
+  <met-card>
+    <met-card-content>
+      <h2 style="text-align: center">Create an Account</h2>
+      <h4>Already have an account?</h4>
+      <div></div>
+      <div style="display: flex; width: 100%">
+        <div style="margin-right: 16px; width: 50%">
+          <met-label>First Name</met-label>
+          <met-form-field appearance="solid">
+            <input type="text" />
+          </met-form-field>
+        </div>
+        <div style="width: 50%">
+          <met-label>Last Name</met-label>
+          <met-form-field appearance="solid">
+            <input type="text" />
+          </met-form-field>
+        </div>
+      </div>
+      <div>
+        <met-label>Email</met-label>
+        <met-form-field appearance="solid">
+          <input type="email" />
+        </met-form-field>
+      </div>
+      <div>
+        <met-label>Password</met-label>
+        <met-form-field appearance="solid">
+          <input [type]="showPassword ? 'text' : 'password'" />
+          <button (click)="showPassword = !showPassword">
+            <span class="material-icons-outlined">{{
+              showPassword ? 'visibility' : 'visibility_off'
+            }}</span>
+          </button>
+        </met-form-field>
+      </div>
+      <div>
+        <met-label>Confirm Password</met-label>
+        <met-form-field appearance="solid">
+          <input [type]="showConfirmPassword ? 'text' : 'password'" />
+          <button (click)="showConfirmPassword = !showConfirmPassword">
+            <span class="material-icons-outlined">{{
+              showConfirmPassword ? 'visibility' : 'visibility_off'
+            }}</span>
+          </button>
+        </met-form-field>
+      </div>
+    </met-card-content>
+  </met-card>
+</div>
