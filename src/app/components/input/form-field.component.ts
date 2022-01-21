@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core'
 
 @Component({
-  selector: 'app-form-field',
+  selector: 'met-form-field',
+  encapsulation: ViewEncapsulation.None,
   template: `
-    <p>
-      form-field works!
-    </p>
+    <div
+      class="wrapper-input"
+      [ngClass]="{
+        'solid': appearance === 'solid',
+        'default': appearance === 'default',
+        'transparent': appearance === 'transparent'
+      }"
+    >
+      <ng-content></ng-content>
+    </div>
   `,
-  styles: [
-  ]
+  styleUrls: ['form-field.component.scss'],
 })
-export class FormFieldComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class FormFieldComponent {
+  @Input() appearance: 'solid' | 'default' | 'transparent' = 'default'
 }
