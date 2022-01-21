@@ -7,8 +7,5 @@ import { Component } from '@angular/core'
 })
 export class AppComponent {
   showPassword = false
-
-  toggleVisibility() {
-    this.showPassword = !this.showPassword
-  }
+  showConfirmPassword = false
 }
