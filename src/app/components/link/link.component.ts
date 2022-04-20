@@ -12,12 +12,12 @@ import { Component, Input } from '@angular/core'
     `
       a {
         font-weight: 500;
-        color: #009ef7;
+        color: var(--primary);
         text-decoration: none;
       }
 
       a:hover {
-        color: #33b1f9;
+        color: var(--primary-hover-light);
       }
 
       .link-small {
