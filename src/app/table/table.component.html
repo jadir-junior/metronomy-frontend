@@ -1,0 +1,22 @@
+<div style="margin: 24px">
+  <met-card>
+    <div style="margin: 16px">
+      <met-table textAlign="left">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Data de criação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.createdAt }}</td>
+          </tr>
+        </tbody>
+      </met-table>
+    </div>
+  </met-card>
+</div>

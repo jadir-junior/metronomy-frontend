@@ -1,26 +1,12 @@
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
 import { BrowserModule } from '@angular/platform-browser'
-import { ButtonModule } from './components/button/button.module'
-import { CardModule } from './components/card/card.module'
-import { ComponentsModule } from './components.module'
-import { InputModule } from './components/input/input.module'
-import { LinkModule } from './components/link/link.module'
+import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core'
-import { TableModule } from './components/table/table.module'
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ComponentsModule,
-    CardModule,
-    LinkModule,
-    TableModule,
-    InputModule,
-    ButtonModule,
-  ],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
