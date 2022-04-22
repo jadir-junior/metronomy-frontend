@@ -4,9 +4,9 @@
       <met-table textAlign="left">
         <thead>
           <tr>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Data de criação</th>
+            <th>NOME</th>
+            <th>EMAIL</th>
+            <th>DATA DE CRIAÇÃO</th>
           </tr>
         </thead>
         <tbody>
@@ -17,6 +17,16 @@
           </tr>
         </tbody>
       </met-table>
+      <div style="padding: 16px 0; display: flex; justify-content: space-between">
+        <div></div>
+        <met-pagination
+          [currentPage]="pagination.currentPage"
+          [totalPages]="pagination.totalPages"
+          (next)="onNext($event)"
+          (previous)="onPrevious($event)"
+          (goTo)="onGoTo($event)"
+        ></met-pagination>
+      </div>
     </div>
   </met-card>
 </div>

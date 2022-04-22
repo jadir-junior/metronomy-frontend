@@ -10,9 +10,9 @@ import { Observable } from 'rxjs'
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<IResponsePagination<IUser[]>> {
+  getUsers(page: number, limit: number): Observable<IResponsePagination<IUser[]>> {
     return this.http.get<IResponsePagination<IUser[]>>(
-      `http://localhost:3000/users?page=1&limit=5`
+      `http://localhost:3000/users?page=${page}&limit=${limit}`
     )
   }
 }
