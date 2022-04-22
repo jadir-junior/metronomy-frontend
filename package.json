@@ -24,7 +24,9 @@
       "import-sort l"
     ],
     "src/**/*.{html,scss,ts}": [
-      "prettier --check",
+      "prettier --check"
+    ],
+    "src/**/*.{html,ts}": [
       "eslint --max-warnings=0"
     ]
   },
@@ -95,7 +97,8 @@
       "!src/**/main.ts",
       "!src/**/polyfills.ts",
       "!src/**/*.module.ts",
-      "!src/**/environments/*.ts"
+      "!src/**/environments/*.ts",
+      "!src/**/*.mock.ts"
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/setup-jest.ts"

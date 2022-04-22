@@ -17,6 +17,7 @@ body {
   letter-spacing: 0.45px;
   box-sizing: border-box;
   font-size: 13px;
+  background-color: #f5f8fa;
 }
 
 :root {
@@ -25,6 +26,7 @@ body {
   --primary: #009ef7;
   --primary-hover: #0095e8;
   --primary-hover-light: #33b1f9;
+  --primary-hover-transparent: #d9f1ff;
 
   --light: #f5f8fa;
   --light-hover: #eff2f5;
@@ -50,10 +52,13 @@ body {
   --white: #fff;
   --white-hover: #f5f8fa;
 
+  --text-disabled: #b5b5c3;
+
   --text-white: #fff;
 
   --text-black-medium: #3f4254;
   --text-black-dark: #181c32;
 
   --text-gray-light: #7e8299;
+  --text-gray-dark: #5e6278;
 }

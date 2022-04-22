@@ -1,0 +1,32 @@
+<div style="margin: 24px">
+  <met-card>
+    <div style="margin: 16px">
+      <met-table textAlign="left">
+        <thead>
+          <tr>
+            <th>NOME</th>
+            <th>EMAIL</th>
+            <th>DATA DE CRIAÇÃO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.createdAt }}</td>
+          </tr>
+        </tbody>
+      </met-table>
+      <div style="padding: 16px 0; display: flex; justify-content: space-between">
+        <div></div>
+        <met-pagination
+          [currentPage]="pagination.currentPage"
+          [totalPages]="pagination.totalPages"
+          (next)="onNext($event)"
+          (previous)="onPrevious($event)"
+          (goTo)="onGoTo($event)"
+        ></met-pagination>
+      </div>
+    </div>
+  </met-card>
+</div>
